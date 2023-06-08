@@ -21,7 +21,7 @@ export const About = () => {
       <Navbar />
       <ContentLayout>
         <div
-          className="flex flex-col text-xl md:text-2xl mt-[18vh] md:mt-[14vh] font-semibold font-mono px-6 gap-[10vh] -z-50"
+          className="flex flex-col text-xl md:text-2xl mt-[18vh] md:mt-[12vh] font-semibold font-mono px-6 gap-[10vh] -z-50"
           data-aos="fade-down"
           data-aos-duration="1100"
         >
@@ -47,24 +47,24 @@ export const About = () => {
             data-aos-once="true"
           >
             <p>
-              Hi! My name is Muhammad Luthfi Ramadhan, currently i am a student
+              Hi! My name is Muhammad Luthfi Ramadhan. Currently, I am a student
               at Universitas Islam Nusantara
             </p>
             <p>
               I'm very intrested in web development, and have 1 year experience
               in HTML, CSS and Javascript. Recently, i also jump into
-              TailwindCSS and ReactJS and still learning about those in about 6
-              months
+              TailwindCSS and ReactJS and still learning about those two in
+              about 6 months
             </p>
             <p className="mt-8">
-              Here are my projects on Github that i worked for in about 6 months
-              of learning TailwindCSS and ReactJS
+              Here are my projects on Github that i worked for in this past 6
+              months of learning TailwindCSS and ReactJS
             </p>
           </div>
         </div>
         <div
-          className="mt-16"
-          data-aos="fade-up"
+          className="mt-14"
+          data-aos="fade-down"
           data-aos-duration="1400"
           data-aos-once="true"
         >
@@ -77,7 +77,7 @@ export const About = () => {
 
         <div
           className="my-24 mb-12 block md:hidden"
-          data-aos="fade-up"
+          data-aos="fade-down"
           data-aos-duration="1500"
           data-aos-once="true"
         >

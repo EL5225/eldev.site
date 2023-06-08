@@ -11,7 +11,7 @@ export const Router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading width={"w-14"} height={"h-14"} />}>
         <ErrorBoundary fallback={<Error />}>
-          <Home />,
+          <Home />
         </ErrorBoundary>
       </Suspense>
     ),
@@ -21,7 +21,7 @@ export const Router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading width={"w-14"} height={"h-14"} />}>
         <ErrorBoundary fallback={<Error />}>
-          <About />,
+          <About />
         </ErrorBoundary>
       </Suspense>
     ),
@@ -31,7 +31,7 @@ export const Router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading width={"w-14"} height={"h-14"} />}>
         <ErrorBoundary fallback={<Error />}>
-          <Contact />,
+          <Contact />
         </ErrorBoundary>
       </Suspense>
     ),

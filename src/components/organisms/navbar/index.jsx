@@ -42,8 +42,8 @@ export const Navbar = () => {
 
   const hamNavClass = ({ isActive }) => {
     return isActive
-      ? "capitalize text-black bg-blue-100"
-      : "capitalize font-medium duration-100 hover:text-black bg-slate-100";
+      ? "capitalize text-black bg-slate-200 rounded-md"
+      : "capitalize font-medium duration-100 hover:text-black bg-white rounded-md";
   };
 
   return (
@@ -81,11 +81,14 @@ export const Navbar = () => {
             className={`w-8 duration-200 ${dropDown ? "rotate-90" : ""}`}
           />
         </Button>
-        <NavDropDown className={`-mx-[36vw] rounded-md`} isDropDown={dropDown}>
-          <ul className="flex flex-col rounded-md" onMouseLeave={isDrowDown}>
+        <NavDropDown className={`-mx-[40vw] rounded-md`} isDropDown={dropDown}>
+          <ul
+            className="flex flex-col rounded-md gap-2"
+            onMouseLeave={isDrowDown}
+          >
             {navList.map((nav) => (
               <NavLink to={nav.link} key={nav.id} className={hamNavClass}>
-                <li className="w-[45vw] px-4 py-1 hover:bg-blue-100">
+                <li className="w-[45vw] px-4 py-1 rounded-md hover:bg-slate-200">
                   {nav.navItem}
                 </li>
               </NavLink>

@@ -28,14 +28,14 @@ export const Contact = () => {
       <Navbar />
       <ContentLayout>
         <h1
-          className="font-semibold text-xl sm:text-2xl md:text-3xl font-mono p-4 rounded-md shadow-sm mt-32 md:mt-14 -z-50"
+          className="font-semibold text-xl sm:text-2xl md:text-3xl font-mono p-4 rounded-md  mt-28 md:mt-14 -z-50"
           data-aos="fade-down"
           data-aos-duration="1000"
         >
           You can contact me via
         </h1>
         <div
-          className="mt-10 -z-50"
+          className="mt-16 -z-50"
           data-aos="fade-down"
           data-aos-duration="1200"
         >
@@ -69,7 +69,7 @@ export const Contact = () => {
         </div>
 
         <div
-          className="my-20 mb-18 block md:hidden"
+          className="my-20 mb-20 block md:hidden"
           data-aos="fade-up"
           data-aos-duration="1500"
           data-aos-once="true"
