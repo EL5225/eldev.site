@@ -1,16 +1,9 @@
-import { useEffect } from "react";
-import { Navbar, Button } from "@/components";
-import { ContentLayout, MainLayout } from "@/layouts";
+import { Button, Navbar, Footer } from "@/components";
+import { ContentLayout } from "@/layouts";
 import { TypeAnimation } from "react-type-animation";
 import Foto from "@/assets/foto1.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 export const Home = () => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
   const downloadCv = () => {
     window.open(
       "https://drive.google.com/file/d/1sjIVUHQjCcLZZRwdbkEXm94bQQ4I55a_/view?usp=sharing",
@@ -19,15 +12,11 @@ export const Home = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <Navbar />
-      <ContentLayout>
-        <div className="w-full hidden md:block -z-50">
-          <div
-            className="flex w-full mt-[8vh] items-center justify-around"
-            data-aos="fade-right"
-            data-aos-duration="1000"
-          >
+      <ContentLayout hMobile={`h-full`}>
+        <div className="w-full hidden md:block my-[10vh]">
+          <div className="flex w-full mt-[8vh] items-center justify-around">
             <figure className="ml-4">
               <img
                 src={Foto}
@@ -36,11 +25,7 @@ export const Home = () => {
               />
             </figure>
             <div className="flex flex-col gap-4 mb-14 min-w-[49vw] lg:ml-4 xl:ml-0">
-              <h1
-                className="md:text-3xl lg:text-5xl font-sans"
-                data-aos="fade-right"
-                data-aos-duration="1100"
-              >
+              <h1 className="md:text-3xl lg:text-5xl font-sans">
                 Hello, World!
               </h1>
 
@@ -65,27 +50,13 @@ export const Home = () => {
         </div>
 
         {/* Mobile */}
-        <div className="block md:hidden mt-24 -z-50">
-          <div
-            className="flex flex-col justify-center items-center"
-            data-aos="fade-down"
-            data-aos-duration="1000"
-          >
+        <div className="block md:hidden mt-24 ">
+          <div className="flex flex-col justify-center items-center">
             <figure>
               <img src={Foto} className="w-[70vw] rounded-full " alt="foto" />
             </figure>
-            <div
-              className="flex flex-col gap-4 max-w-[83vw] mt-12"
-              data-aos="fade-right"
-              data-aos-duration="1100"
-            >
-              <h1
-                className="text-3xl font-sans"
-                data-aos="fade-right"
-                data-aos-duration="1200"
-              >
-                Hello, World!
-              </h1>
+            <div className="flex flex-col gap-4 max-w-[83vw] mt-12">
+              <h1 className="text-3xl font-sans">Hello, World!</h1>
               <TypeAnimation
                 sequence={[800, "I, Muhammad Luthfi Ramadhan"]}
                 wrapper="span"
@@ -106,20 +77,14 @@ export const Home = () => {
           </div>
         </div>
 
-        <div
-          className="my-24 mb-12 block md:hidden"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-once="true"
+        <Button
+          className={`mt-20 mb-12 block md:hidden hover:bg-blue-400 text-white bg-blue-500 font-semibold rounded-md hover:text-black`}
+          click={downloadCv}
         >
-          <Button
-            className={` hover:bg-blue-400 text-white bg-blue-500 font-semibold rounded-md hover:text-black`}
-            click={downloadCv}
-          >
-            Download CV
-          </Button>
-        </div>
+          Download CV
+        </Button>
+        <Footer />
       </ContentLayout>
-    </MainLayout>
+    </>
   );
 };

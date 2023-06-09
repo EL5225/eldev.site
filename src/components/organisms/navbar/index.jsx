@@ -47,7 +47,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="w-full fixed flex items-center bg-white justify-between px-4 font-semibold text-slate-500 h-[8vh]">
+    <header className="w-full flex fixed items-center bg-white justify-between px-4 font-semibold text-slate-500 h-[8vh] z-50">
       <figure>
         <figcaption className="text-lg w-[8vw] px-2 font-mono font-bold">
           EL.
@@ -64,6 +64,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </nav>
+
       <Button
         className={`hidden md:block hover:bg-slate-200 rounded-md hover:text-black`}
         click={downloadCv}
