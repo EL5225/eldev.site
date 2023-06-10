@@ -1,9 +1,12 @@
-import { HamburgerIcon, Button, NavDropDown } from "@/components";
-import { useState } from "react";
+import { HamburgerIcon, Button, NavDropDown, DarkMode } from "@/components";
+import { CheckTheme } from "@/services";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const [dropDown, setDropDown] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme"));
+  const element = document.documentElement;
 
   const downloadCv = () => {
     window.open(
@@ -12,9 +15,32 @@ export const Navbar = () => {
     );
   };
 
+  const setDarkTheme = () => {
+    setIsDarkMode("dark");
+    if (isDarkMode === "dark") {
+      setIsDarkMode("light");
+    } else {
+      setIsDarkMode("dark");
+    }
+  };
+
   const isDrowDown = () => {
     setDropDown(!dropDown);
   };
+
+  useEffect(() => {
+    if (isDarkMode === "dark") {
+      element.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else if (isDarkMode === "light") {
+      element.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.removeItem("theme");
+    }
+  }, [isDarkMode]);
+
+  CheckTheme();
 
   const navList = [
     {
@@ -36,20 +62,24 @@ export const Navbar = () => {
 
   const navClass = ({ isActive }) => {
     return isActive
-      ? "text-black capitalize border-b-2 border-slate-400"
-      : "border-b border-white hover:text-gray-700 hover:border-slate-300 capitalize font-medium duration-200 ";
+      ? `capitalize border-b-2 text-black dark:text-white border-slate-400 dark:border-slate-100 duration-300 ease-out`
+      : `border-b capitalize font-medium duration-200 border-white hover:text-gray-700 hover:border-slate-300 dark:border-black hover:dark:text-slate-100 hover:dark:border-slate-100 duration-300 ease-out `;
   };
 
   const hamNavClass = ({ isActive }) => {
     return isActive
-      ? "capitalize text-black bg-slate-200 rounded-md"
-      : "capitalize font-medium duration-100 hover:text-black bg-white rounded-md";
+      ? `capitalize rounded-md text-black bg-slate-200 dark:bg-slate-500 dark:text-slate-100 duration-300 ease-out`
+      : `capitalize font-medium duration-100 rounded-md hover:text-black bg-white dark:bg-zinc-900 dark:text-slate-200 dark:hover:text-slate-100 duration-300 ease-out`;
   };
 
   return (
-    <header className="w-full flex fixed items-center bg-white justify-between px-4 font-semibold text-slate-500 h-[8vh] z-50">
+    <header
+      className={`w-full flex fixed items-center justify-between px-4 font-semibold bg-white dark:bg-zinc-900 duration-300 ease-out text-slate-500  h-[8vh] z-50`}
+    >
       <figure>
-        <figcaption className="text-lg w-[8vw] px-2 font-mono font-bold">
+        <figcaption
+          className={`text-lg w-[8vw] px-2 font-mono font-bold dark:text-slate-200`}
+        >
           EL.
         </figcaption>
       </figure>
@@ -64,22 +94,27 @@ export const Navbar = () => {
           ))}
         </ul>
       </nav>
-
-      <Button
-        className={`hidden md:block hover:bg-slate-200 rounded-md hover:text-black`}
-        click={downloadCv}
-      >
-        Download CV
-      </Button>
+      <div className="flex justify-between items-center w-[12vw]">
+        <Button
+          className={`hidden md:block text-slate-500 hover:bg-slate-200 rounded-md hover:text-black dark:text-slate-200 dark:hover:bg-slate-500`}
+          click={downloadCv}
+        >
+          Download CV
+        </Button>
+        <Button className={`duration-200 dark:rotate-180`} click={setDarkTheme}>
+          <DarkMode color={isDarkMode === "dark" ? "#ffff" : `#434242`} />
+        </Button>
+      </div>
 
       {/* Mobile */}
       <nav className="block md:hidden">
         <Button
           click={isDrowDown}
-          className={`flex items-center hover:bg-slate-100 rounded-md text-white`}
+          className={`flex items-center  rounded-md text-white hover:bg-slate-200 dark:hover:bg-slate-500`}
         >
           <HamburgerIcon
-            className={`w-8 duration-200 ${dropDown ? "rotate-90" : ""}`}
+            className={`w-8 duration-200 ${dropDown ? "rotate-90" : ""} `}
+            theme={isDarkMode}
           />
         </Button>
         <NavDropDown className={`-mx-[40vw] rounded-md`} isDropDown={dropDown}>
@@ -89,7 +124,7 @@ export const Navbar = () => {
           >
             {navList.map((nav) => (
               <NavLink to={nav.link} key={nav.id} className={hamNavClass}>
-                <li className="w-[45vw] px-4 py-1 rounded-md hover:bg-slate-200">
+                <li className="w-[45vw] px-4 py-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-500 duration-300 ease-out">
                   {nav.navItem}
                 </li>
               </NavLink>
