@@ -94,7 +94,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </nav>
-      <div className="flex justify-between items-center w-[12vw]">
+      <div className="flex justify-between items-center md:w-[20vw] lg:w-[15vw] xl:w-[12vw]">
         <Button
           className={`hidden md:block text-slate-500 hover:bg-slate-200 rounded-md hover:text-black dark:text-slate-200 dark:hover:bg-slate-500`}
           click={downloadCv}

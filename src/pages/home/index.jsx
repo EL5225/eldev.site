@@ -72,37 +72,32 @@ export const Home = () => {
             <div className="flex flex-col gap-4 max-w-[83vw] mt-12">
               <h1 className="text-3xl font-sans">Hello, World!</h1>
               <TypeAnimation
-                sequence={[600, "I, Muhammad Luthfi Ramadhan"]}
+                sequence={[500, "I, Muhammad Luthfi Ramadhan"]}
                 wrapper="span"
                 cursor={true}
                 className="text-lg font-bold font-mono"
               />
               <TypeAnimation
                 sequence={[
-                  500,
+                  400,
                   " A student of Informatics Engineering at Universitas Islam Nusantara",
                 ]}
                 wrapper="span"
                 cursor={true}
                 className="text-lg font-bold font-mono"
-                speed={65}
+                speed={70}
               />
             </div>
           </div>
         </div>
 
-        <div
-          className="block md:hidden mt-20 mb-12 rounded-md "
-          data-aos="fade-down"
-          data-aos-once="true"
+        <Button
+          className={`block md:hidden mt-16 mb-12 hover:bg-blue-400 text-white dark:hover:bg-blue-900 dark:text-slate-200 bg-blue-500 dark:bg-blue-800 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
+          click={downloadCv}
         >
-          <Button
-            className={`  hover:bg-blue-400 text-white dark:hover:bg-blue-900 dark:text-slate-200 bg-blue-500 dark:bg-blue-800 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
-            click={downloadCv}
-          >
-            Download CV
-          </Button>
-        </div>
+          Download CV
+        </Button>
+
         <Footer />
       </ContentLayout>
     </>
