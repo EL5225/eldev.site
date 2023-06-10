@@ -92,7 +92,7 @@ export const Home = () => {
         </div>
 
         <Button
-          className={`block md:hidden mt-16 mb-12 hover:bg-blue-400 text-white dark:hover:bg-blue-900 dark:text-slate-200 bg-blue-500 dark:bg-blue-800 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
+          className={`block md:hidden mt-16 mb-14 hover:bg-blue-400 text-white dark:hover:bg-blue-900 dark:text-slate-200 bg-blue-500 dark:bg-blue-800 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
           click={downloadCv}
         >
           Download CV
