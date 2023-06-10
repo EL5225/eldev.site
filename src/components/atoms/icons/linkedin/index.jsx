@@ -5,6 +5,7 @@ export const LinkedInIcon = () => {
       viewBox="0 0 48 48"
       width="58px"
       height="58px"
+      className="dark:opacity-80"
     >
       <path
         fill="#0288D1"

@@ -1,6 +1,9 @@
 import { Button, Navbar, Footer } from "@/components";
 import { ContentLayout } from "@/layouts";
 import { TypeAnimation } from "react-type-animation";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Foto from "@/assets/foto1.jpg";
 
 export const Home = () => {
@@ -11,11 +14,19 @@ export const Home = () => {
     );
   };
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <>
       <Navbar />
       <ContentLayout hMobile={`h-full`}>
-        <div className="w-full hidden md:block my-[10vh]">
+        <div
+          className="w-full hidden md:block my-[10vh] dark:text-slate-200"
+          data-aos="fade-down"
+          data-aos-once="true"
+        >
           <div className="flex w-full mt-[8vh] items-center justify-around">
             <figure className="ml-4">
               <img
@@ -30,14 +41,14 @@ export const Home = () => {
               </h1>
 
               <TypeAnimation
-                sequence={[800, "I, Muhammad Luthfi Ramadhan"]}
+                sequence={[500, "I, Muhammad Luthfi Ramadhan"]}
                 wrapper="span"
                 cursor={true}
                 className="lg:text-xl font-bold font-mono md:text-lg"
               />
               <TypeAnimation
                 sequence={[
-                  900,
+                  400,
                   " A student of Informatics Engineering at Universitas Islam Nusantara",
                 ]}
                 wrapper="span"
@@ -51,21 +62,24 @@ export const Home = () => {
 
         {/* Mobile */}
         <div className="block md:hidden mt-24 ">
-          <div className="flex flex-col justify-center items-center">
+          <div
+            className="flex flex-col justify-center items-center dark:text-slate-200"
+            data-aos="fade-down"
+          >
             <figure>
               <img src={Foto} className="w-[70vw] rounded-full " alt="foto" />
             </figure>
             <div className="flex flex-col gap-4 max-w-[83vw] mt-12">
               <h1 className="text-3xl font-sans">Hello, World!</h1>
               <TypeAnimation
-                sequence={[800, "I, Muhammad Luthfi Ramadhan"]}
+                sequence={[600, "I, Muhammad Luthfi Ramadhan"]}
                 wrapper="span"
                 cursor={true}
                 className="text-lg font-bold font-mono"
               />
               <TypeAnimation
                 sequence={[
-                  900,
+                  500,
                   " A student of Informatics Engineering at Universitas Islam Nusantara",
                 ]}
                 wrapper="span"
@@ -77,12 +91,18 @@ export const Home = () => {
           </div>
         </div>
 
-        <Button
-          className={`mt-20 mb-12 block md:hidden hover:bg-blue-400 text-white bg-blue-500 font-semibold rounded-md hover:text-black`}
-          click={downloadCv}
+        <div
+          className="block md:hidden mt-20 mb-12 rounded-md "
+          data-aos="fade-down"
+          data-aos-once="true"
         >
-          Download CV
-        </Button>
+          <Button
+            className={`  hover:bg-blue-400 text-white dark:hover:bg-blue-900 dark:text-slate-200 bg-blue-500 dark:bg-blue-800 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
+            click={downloadCv}
+          >
+            Download CV
+          </Button>
+        </div>
         <Footer />
       </ContentLayout>
     </>

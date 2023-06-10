@@ -5,6 +5,7 @@ export const GmailIcon = () => {
       viewBox="0 0 48 48"
       width="50px"
       height="50px"
+      className="dark:opacity-80"
     >
       <path
         fill="#4caf50"

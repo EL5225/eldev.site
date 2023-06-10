@@ -5,6 +5,7 @@ export const InstagramIcon = () => {
       viewBox="0 0 48 48"
       width="60px"
       height="60px"
+      className="dark:opacity-80"
     >
       <radialGradient
         id="yOrnnhliCrdS2gy~4tD8ma"

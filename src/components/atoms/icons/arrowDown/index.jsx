@@ -10,7 +10,7 @@ export const ArrowDownIcon = ({ bounce }) => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 512.004 512.004"
       xmlSpace="preserve"
-      className={`${bounce}`}
+      className={`${bounce} dark:fill-slate-400`}
     >
       <g>
         <g>
