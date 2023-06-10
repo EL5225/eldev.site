@@ -20,29 +20,19 @@ export const About = () => {
   return (
     <>
       <Navbar />
-      <ContentLayout hMobile={`h-full`}>
+      <ContentLayout hMobile={`md:h-screen`}>
         <div
-          className="flex flex-col text-xl md:text-2xl mt-[18vh] md:mt-[18vh] font-semibold font-mono px-6 gap-[10vh] mb-[4vh] dark:text-slate-200"
+          className="flex flex-col text-xl md:text-2xl mt-[18vh] md:mt-[22vh] font-semibold font-mono px-6 gap-[10vh] mb-[4vh] dark:text-slate-200"
           data-aos="fade-down"
           data-aos-once="true"
         >
-          <TypeAnimation
-            sequence={[
-              500,
-              "About Myself",
-              1000,
-              "About",
-              2000,
-              "Myself",
-              1000,
-            ]}
-            wrapper="h1"
-            cursor={true}
-            repeat={Infinity}
-            className={`text-3xl sm:text-4xl md:text-5xl px-6 text-black dark:text-slate-200 `}
-          />
+          <h1
+            className={`text-3xl sm:text-3xl md:text-4xl px-6 text-black dark:text-slate-200 `}
+          >
+            About myself
+          </h1>
           <div
-            className={`flex flex-col gap-6 rounded-md shadow-md bg-slate-50 dark:bg-slate-800 duration-300 ease-out p-6 `}
+            className={`flex flex-col gap-6 rounded-md shadow-md md:text-lg bg-slate-50 dark:bg-slate-800 duration-300 ease-out p-6 `}
           >
             <p>
               Hi! My name is Muhammad Luthfi Ramadhan. Currently, I am a student
@@ -61,7 +51,7 @@ export const About = () => {
           </div>
         </div>
 
-        <div className="my-[5vh]" data-aos="fade-down" data-aos-once="true">
+        <div className="my-[3vh]" data-aos="fade-down" data-aos-once="true">
           <Button className={` hover:scale-110 duration-300`}>
             <a href="https://github.com/EL5225" target="_blank">
               <GithubIcon />
@@ -70,7 +60,7 @@ export const About = () => {
         </div>
 
         <Button
-          className={`my-24 mb-12 block md:hidden hover:bg-red-500 dark:bg-red-800 dark:hover:bg-red-900 dark:text-slate-200 text-white bg-red-600 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
+          className={`my-16 mb-14 block md:hidden hover:bg-red-500 dark:bg-red-800 dark:hover:bg-red-900 dark:text-slate-200 text-white bg-red-600 font-semibold rounded-md hover:text-black dark:hover:text-zinc-400`}
           click={downloadCv}
         >
           Download CV
