@@ -112,7 +112,10 @@ export const Navbar = () => {
         <NavDropDown className={`-mx-[40vw] rounded-md`} isDropDown={dropDown}>
           <ul
             className="flex flex-col rounded-md gap-2"
-            onMouseLeave={isDrowDown}>
+            onClick={() => {
+              isDrowDown();
+              document.documentElement.scrollTop = 0;
+            }}>
             {navList.map((nav) => (
               <NavLink to={nav.link} key={nav.id} className={hamNavClass}>
                 <li className="w-[45vw] px-4 py-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-500 duration-300 ease-out">
