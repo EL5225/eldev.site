@@ -1,5 +1,6 @@
 import { HamburgerIcon, Button, NavDropDown, DarkMode } from "@/components";
 import { CheckTheme } from "@/services";
+import { downloadCv } from "@/utils";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -7,13 +8,6 @@ export const Navbar = () => {
   const [dropDown, setDropDown] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme"));
   const element = document.documentElement;
-
-  const downloadCv = () => {
-    window.open(
-      "https://drive.google.com/file/d/1sjIVUHQjCcLZZRwdbkEXm94bQQ4I55a_/view?usp=sharing",
-      "_blank"
-    );
-  };
 
   const setDarkTheme = () => {
     setIsDarkMode("dark");
@@ -38,9 +32,11 @@ export const Navbar = () => {
     } else {
       localStorage.removeItem("theme");
     }
-  }, [isDarkMode]);
+  }, [element.classList, isDarkMode]);
 
-  CheckTheme();
+  useEffect(() => {
+    CheckTheme();
+  }, []);
 
   const navList = [
     {
@@ -74,12 +70,10 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`w-full flex fixed items-center justify-between px-4 font-semibold bg-white dark:bg-zinc-900 duration-300 ease-out text-slate-500  h-[8vh] z-50`}
-    >
+      className={`w-full flex fixed items-center justify-between px-4 font-semibold bg-white dark:bg-zinc-900 duration-300 ease-out text-slate-500  h-[10vh] z-50`}>
       <figure>
         <figcaption
-          className={`text-lg w-[8vw] px-2 font-mono font-bold dark:text-slate-200`}
-        >
+          className={`text-lg w-[8vw] px-2 font-mono font-bold dark:text-slate-200`}>
           EL.
         </figcaption>
       </figure>
@@ -97,8 +91,7 @@ export const Navbar = () => {
       <div className="flex justify-between items-center md:w-[20vw] lg:w-[15vw] xl:w-[12vw]">
         <Button
           className={`hidden md:block text-slate-500 hover:bg-slate-200 rounded-md hover:text-black dark:text-slate-200 dark:hover:bg-slate-500`}
-          click={downloadCv}
-        >
+          click={downloadCv}>
           Download CV
         </Button>
         <Button className={`duration-200 dark:rotate-180`} click={setDarkTheme}>
@@ -110,8 +103,7 @@ export const Navbar = () => {
       <nav className="block md:hidden">
         <Button
           click={isDrowDown}
-          className={`flex items-center  rounded-md text-white hover:bg-slate-200 dark:hover:bg-slate-500`}
-        >
+          className={`flex items-center  rounded-md text-white hover:bg-slate-200 dark:hover:bg-slate-500`}>
           <HamburgerIcon
             className={`w-8 duration-200 ${dropDown ? "rotate-90" : ""} `}
             theme={isDarkMode}
@@ -120,8 +112,7 @@ export const Navbar = () => {
         <NavDropDown className={`-mx-[40vw] rounded-md`} isDropDown={dropDown}>
           <ul
             className="flex flex-col rounded-md gap-2"
-            onMouseLeave={isDrowDown}
-          >
+            onMouseLeave={isDrowDown}>
             {navList.map((nav) => (
               <NavLink to={nav.link} key={nav.id} className={hamNavClass}>
                 <li className="w-[45vw] px-4 py-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-500 duration-300 ease-out">
