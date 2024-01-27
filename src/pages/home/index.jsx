@@ -19,7 +19,7 @@ export const Home = () => {
         <div className="flex w-full mt-[8vh] items-center justify-around">
           <figure className="ml-4">
             <img
-              src="/foto1.jpg"
+              src="/foto1.webp"
               className="max-w-[30vw] rounded-full bg-cover bg-no-repeat"
               alt="foto"
             />
