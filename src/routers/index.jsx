@@ -33,4 +33,8 @@ export const Router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <Error />,
+  },
 ]);
