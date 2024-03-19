@@ -54,7 +54,7 @@ export const Home = () => {
           data-aos="fade-down">
           <figure>
             <img
-              src="/foto1.jpg"
+              src="/foto1.webp"
               className="w-[70vw] rounded-full "
               alt="foto"
             />
