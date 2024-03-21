@@ -29,6 +29,7 @@
     }
   ],
   "display": "fullscreen",
-  "background_color": "#fffff",
-  "theme_color": "#fffff"
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "form_factor": "wide"
 }
